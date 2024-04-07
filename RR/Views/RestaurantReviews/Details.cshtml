@@ -1,0 +1,58 @@
+﻿@model RestaurantReview
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <div class="d-flex justify-content-between mt-2">
+        <h4>Restaurant Review</h4>
+        <div class="d-flex gap-4">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-outline-primary">Edit</a>
+            <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+            <button onclick="goBack()" class="btn btn-outline-primary">Go Back</button>
+        </div>
+    </div>
+    <hr />
+    <dl class="row gap-3">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RestaurantName)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.RestaurantName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FoodName)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.FoodName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReviewScore)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.ReviewScore)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PublishingDate)
+        </dt>
+        <dd class = "col-sm-9">
+            @Html.DisplayFor(model => model.PublishingDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FoodImage)
+        </dt>
+        <dd class = "col-sm-9">
+            <img src="@Url.Action("GetImage", new { id = Model!.Id })" alt="FoodImage" class="food-image" />
+        </dd>
+    </dl>
+</div>
+

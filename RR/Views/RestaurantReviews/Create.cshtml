@@ -1,0 +1,58 @@
+﻿@model RR.Models.CreateReview
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+<div class="d-flex justify-content-between" >
+    <h4>Restaurant Review</h4>
+    <div>
+        <a asp-action="Index"><button class="btn btn-primary">Back to List</button></a>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group gap-3 d-flex flex-column">
+                <label asp-for="RestaurantName" class="control-label">Restaurant Name</label>
+                <input asp-for="RestaurantName" class="form-control" />
+                <span asp-validation-for="RestaurantName" class="text-danger"></span>
+            </div>
+            <div class="form-group gap-3 d-flex flex-column">
+                <label asp-for="FoodName" class="control-label">Food Name</label>
+                <input asp-for="FoodName" class="form-control" />
+                <span asp-validation-for="FoodName" class="text-danger"></span>
+            </div>
+            <div class="form-group gap-3 d-flex flex-column">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group gap-3 d-flex flex-column">
+                <label asp-for="ReviewScore" class="control-label">Review Score</label>
+                <input asp-for="ReviewScore" class="form-control" />
+                <span asp-validation-for="ReviewScore" class="text-danger"></span>
+            </div>
+            <div class="form-group gap-3 d-flex flex-column">
+                <label asp-for="PublishingDate" class="control-label"></label>
+                <input asp-for="PublishingDate" class="form-control" />
+                <span asp-validation-for="PublishingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group gap-3 d-flex flex-column">
+                <label asp-for="FoodPhoto" class="control-label"></label>
+                <input asp-for="FoodPhoto" class="form-control" type="file"/>
+                <span asp-validation-for="FoodPhoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
